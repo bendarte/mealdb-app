@@ -1,20 +1,20 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   Typography,
   ThemeProvider,
   createTheme,
   CssBaseline,
   Grid,
-} from "@mui/material";
-import { orange } from "@mui/material/colors";
+} from '@mui/material';
+import { orange } from '@mui/material/colors';
 import SearchComponent from './components/SearchComponent';
-import ListComponent from "./components/ListComponent";
+import ListComponent from './components/ListComponent';
 import DetailComponent from './components/DetailComponent';
 
 function App() {
   const theme = createTheme({
     palette: {
-      mode: "dark",
+      mode: 'dark',
       primary: {
         main: orange[500],
       },
@@ -38,7 +38,20 @@ function App() {
         setSelectedMeal(null);
       }
     } catch (error) {
-      console.error("Error fetching data: ", error);
+      console.error('Error fetching data: ', error);
+    }
+  };
+
+  const handleRandom = async () => {
+    setShowPopup(false);
+    const url = 'https://www.themealdb.com/api/json/v1/1/random.php';
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      setSearchResults(data.meals);
+      setSelectedMeal(null);
+    } catch (error) {
+      console.error('Error fetching random meal: ', error);
     }
   };
 
@@ -62,7 +75,7 @@ function App() {
           </Typography>
         </Grid>
         <Grid item>
-          <SearchComponent onSearch={handleSearch} />
+          <SearchComponent onSearch={handleSearch} onRandom={handleRandom} />
         </Grid>
         <Grid item>
           {!selectedMeal && !showPopup && (

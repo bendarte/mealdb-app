@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import { TextField, Button, Grid } from '@mui/material';
 
-const SearchComponent = ({ onSearch }) => {
+const SearchComponent = ({ onSearch, onRandom }) => {
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleSearch = () => {
     onSearch(searchTerm);
+  };
+
+  const handleRandom = () => {
+    onRandom();
   };
 
   return (
@@ -21,8 +25,13 @@ const SearchComponent = ({ onSearch }) => {
         />
       </Grid>
       <Grid item>
-        <Button onClick={handleSearch} variant="contained" color="primary" size="large">
+        <Button onClick={handleSearch} variant="contained" color="primary">
           Sök
+        </Button>
+      </Grid>
+      <Grid item>
+        <Button onClick={handleRandom} variant="contained" color="primary">
+          Random
         </Button>
       </Grid>
     </Grid>
@@ -30,4 +39,6 @@ const SearchComponent = ({ onSearch }) => {
 };
 
 export default SearchComponent;
+
+
 
