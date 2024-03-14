@@ -3,7 +3,7 @@ import { Grid, Typography } from "@mui/material";
 
 function ListComponent({ meals, onSelectMeal }) {
   if (!meals || meals.length === 0) {
-    return <p>Inga resultat hittades</p>;
+    return <p></p>;
   }
 
   return (

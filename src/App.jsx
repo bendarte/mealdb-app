@@ -71,7 +71,7 @@ function App() {
       <Grid container direction="column" alignItems="center" spacing={2}>
         <Grid item>
           <Typography variant="h2" color="primary">
-            Moe's Matapp
+            HungryPal by Osman
           </Typography>
         </Grid>
         <Grid item>
@@ -87,7 +87,7 @@ function App() {
           {showPopup && (
             <div className="popup-overlay">
               <div className="popup">
-                <p>Inga maträtter hittades.</p>
+                <p>Pardon, no dishes were found..</p>
                 <button onClick={() => setShowPopup(false)}>OK</button>
               </div>
             </div>

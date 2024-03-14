@@ -21,12 +21,12 @@ const SearchComponent = ({ onSearch, onRandom }) => {
           type="text"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          placeholder="Sök efter en maträtt..."
+          placeholder="Search for a dish..."
         />
       </Grid>
       <Grid item>
         <Button onClick={handleSearch} variant="contained" color="primary">
-          Sök
+          Search
         </Button>
       </Grid>
       <Grid item>
